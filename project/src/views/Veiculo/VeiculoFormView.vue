@@ -201,7 +201,7 @@ export default defineComponent({
        });
    },
    onClickExcluir(){
-     ModeloClient.excluir(this.veiculo.id)
+     VeiculoClient.excluir(this.veiculo.id)
        .then(sucess => {
          this.veiculo = new Veiculo()
          
