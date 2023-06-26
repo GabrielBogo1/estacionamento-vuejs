@@ -70,8 +70,30 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/ModeloFormView.vue')
       }
     ]
-  }
+  },
+  {
+    path: '/condutor/lista',
+    name: 'condutor-lista-view',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Condutor/CondutorListaView.vue')
+  },
 
+  {
+    path: '/condutor/formulario',
+    name: 'condutor-formulario-view',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Condutor/CondutorFormView.vue'),
+    children: [
+      {
+        path: '/condutor/formulario',
+        name: 'condutor-formulario-editar-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Condutor/CondutorFormView.vue')
+      },
+      {
+        path: '/condutor/formulario',
+        name: 'condutor-formulario-excluir-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Condutor/CondutorFormView.vue')
+      }
+    ]
+  }
 ]
 
 const router = createRouter({
