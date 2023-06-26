@@ -4,6 +4,7 @@ import { Modelo } from "./ModeloModel";
 import { Tipo } from "./TipoModel";
 
 export class Veiculo extends AbstractEntity {
+    placa!: String
     modelo!: Modelo
     ano!: number
     cor!: Cor

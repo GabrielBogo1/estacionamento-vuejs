@@ -6,7 +6,7 @@
       <router-link to="/condutor/lista" class="routers-class">Condutor</router-link>
       <router-link to="/marca/lista" class="routers-class">Marca</router-link>
       <router-link to="/modelo/lista" class="routers-class">Modelo</router-link>
-      <router-link to="/movimentacao" class="routers-class">Movimentação</router-link>
+      <router-link to="/movimentacao/lista" class="routers-class">Movimentação</router-link>
       <router-link to="/veiculo/lista" class="routers-class">Veículo</router-link>
    </div>
 </nav>

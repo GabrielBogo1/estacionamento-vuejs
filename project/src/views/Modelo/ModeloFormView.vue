@@ -19,9 +19,8 @@
 
 <div class="row">
  <div class="col-md-12 text-start">
-   <label for="recipient-name" class=" row m-auto col-form-label">Nome da Marca:</label>
-     <select type="text" v-model="modelo.marca"><option v-for="item in marca" :value="item">{{ item.nome }} </option></select>
-     <input type="text"  class="form-control" v-model="modelo.marca">
+   <label for="recipient-name" class=" row m-auto col-form-label">Selecionar Marca:</label>
+     <select type="text" v-model="modelo.marca"><option v-for="item in marca" :value="item">{{ item.nome }}</option></select>
  </div>
    <div class="col-md-12 text-start">
        <label class="form-label">Nome do Modelo</label>
@@ -39,15 +38,15 @@
  </div>
  <div class="col-md-3 "> 
    <div class="d-grid gap-2">
-     <button v-if="form === undefined" type="button" 
+     <button v-if="this.form === undefined" type="button" 
          class="btn btn-success" @click="onClickCadastrar()">
        Cadastrar 
      </button>
-     <button v-if="form === 'editar'" type="button" 
+     <button v-if="this.form === 'editar'" type="button" 
          class="btn btn-warning" @click="onClickEditar()">
        Editar 
      </button>
-     <button v-if="form === 'deletaModelo'" type="button"
+     <button v-if="this.form === 'excluir'" type="button"
        class="btn btn-danger" @click="onClickExcluir()">
        Excluir 
      </button>
