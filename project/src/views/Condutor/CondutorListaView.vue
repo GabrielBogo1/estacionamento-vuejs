@@ -42,7 +42,7 @@
                             </router-link>
                             <router-link type="button" class="btn btn-sm btn-danger" 
                                :to="{ name: 'condutor-formulario-excluir-view', query: { id: item.id, form: 'excluir' } } ">
-                               Excluir
+                               Excluir 
                             </router-link>
                          </div>
                       </th>
@@ -109,5 +109,6 @@
     margin-top: 25px;
     width: 100%;
 }
+
 
   </style>

@@ -8,6 +8,7 @@
       <router-link to="/modelo/lista" class="routers-class">Modelo</router-link>
       <router-link to="/movimentacao/lista" class="routers-class">Movimentação</router-link>
       <router-link to="/veiculo/lista" class="routers-class">Veículo</router-link>
+      <router-link to="/configuracao/lista" class="routers-class">Configuração</router-link>
    </div>
 </nav>
 <router-view/>

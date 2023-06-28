@@ -16,7 +16,7 @@ class MovimentacaoClient {
         try {
             return (await this.axiosClient.get<Movimentacao>(`/${id}`)).data
         } catch (error: any) {
-            return Promise.reject(error.response)
+            return Promise.reject(error.response.data)
         }
     }
 
@@ -24,7 +24,7 @@ class MovimentacaoClient {
         try {
             return (await this.axiosClient.get<Movimentacao[]>(`/lista`)).data
         } catch (error: any) {
-            return Promise.reject(error.response)
+            return Promise.reject(error.response.data)
         }
     }
 
@@ -32,21 +32,21 @@ class MovimentacaoClient {
         try {
             return (await this.axiosClient.post<string>(``, movimentacao)).data
         } catch (error: any) {
-            return Promise.reject(error.response)
+            return Promise.reject(error.response.data)
         }
     }
     public async editar(id: number, movimentacao: Movimentacao): Promise<string> {
         try {
             return (await this.axiosClient.put<string>(`/${id}`, movimentacao)).data
         } catch (error: any) {
-            return Promise.reject(error.response)
+            return Promise.reject(error.response.data)
         }
     }
     public async excluir(id: number): Promise<string> {
         try {
             return (await this.axiosClient.delete<string>(`/${id}`)).data
         } catch (error: any) {
-            return Promise.reject(error.response)
+            return Promise.reject(error.response.data)
         }
     }
 }

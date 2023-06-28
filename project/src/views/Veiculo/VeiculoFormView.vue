@@ -3,10 +3,8 @@
 
 <div class="row">
  <div class="col-md-10 text-start"> <p class="fs-3">Cadastrar Veículo</p> </div>
- <div class="col-md-2"> </div>
+ <hr/>
 </div>
-
-<hr/>
 
 <div v-if="mensagem.ativo" class="row">
  <div class="col-md-12 text-start">
@@ -20,7 +18,7 @@
 <div class="row">
  <div class="col-md-12 text-start">
    <label for="recipient-name" class=" row m-auto col-form-label">Selecionar Modelo:</label>
-     <select type="text" v-model="veiculo.modelo"><option v-for="item in modelo" :value="item">{{ item.nome }}</option></select>
+     <select type="text" class="form-select form-select-md  mb-3" aria-label=".form-select-md" v-model="veiculo.modelo"><option v-for="item in modelo" :value="item">{{ item.nome }}</option></select>
  </div>
    <div class="col-md-12 text-start">
        <label class="form-label">Placa:</label>
@@ -28,18 +26,18 @@
    </div>
    <div class="col-md-12 text-start">
        <label class="form-label">Ano</label>
-       <input type="text" class="form-control" placeholder="ano" v-model="veiculo.ano">
+       <input type="text" class="form-control" v-model="veiculo.ano">
    </div>
    <div class="col-md-12 text-start">
     <label for="recipient-name" class=" row m-auto col-form-label">Selecionar Cor:</label>
-    <select v-model="veiculo.cor">
+    <select class="form-select form-select-md  mb-3" aria-label=".form-select-md"  v-model="veiculo.cor">
       <option option v-for="opcao in opcoesCor" :value="opcao" :key="opcao">{{ opcao }}</option>
     </select>
 </div>
 
 <div class="col-md-12 text-start">
     <label for="recipient-name" class=" row m-auto col-form-label">Selecionar o tipo:</label>
-    <select v-model="veiculo.tipo">
+    <select class="form-select form-select-md  mb-3" aria-label=".form-select-md" v-model="veiculo.tipo">
       <option option v-for="opcao in opcoesTipo" :value="opcao" :key="opcao">{{ opcao }}</option>
     </select>
 </div>
@@ -161,7 +159,6 @@ export default defineComponent({
          
          this.mensagem.ativo = true;
          this.mensagem.mensagem = sucess;
-         this.mensagem.titulo = "Parabens. ";
          this.mensagem.css = "alert alert-success alert-dismissible fade show";
        })
        .catch(error => {
@@ -190,7 +187,6 @@ export default defineComponent({
          
          this.mensagem.ativo = true;
          this.mensagem.mensagem = sucess;
-         this.mensagem.titulo = "Parabens. ";
          this.mensagem.css = "alert alert-success alert-dismissible fade show";
        })
        .catch(error => {
@@ -204,8 +200,9 @@ export default defineComponent({
      VeiculoClient.excluir(this.veiculo.id)
        .then(sucess => {
          this.veiculo = new Veiculo()
-         
-         this.$router.push({ name: 'veiculo-lista-view' });
+         this.mensagem.ativo = true;
+         this.mensagem.mensagem = sucess;
+         this.mensagem.css = "alert alert-success alert-dismissible fade show"; 
        })
        .catch(error => {
          this.mensagem.ativo = true;
@@ -227,5 +224,10 @@ export default defineComponent({
             font-weight: 600;
             font-family: 'Poppins', sans-serif;
         }
+
+        .fs-3{
+            margin-top: 20px;
+          }
+
 
 </style>

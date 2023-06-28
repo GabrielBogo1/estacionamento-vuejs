@@ -32,7 +32,7 @@ class MarcaClient {
         try {
             return (await this.axiosClient.post<string>(``, marca)).data
         } catch (error: any) {
-            return Promise.reject(error.response)
+            return Promise.reject(error.response.data)
         }
     }
     public async editar(id: number, marca: MarcaModel): Promise<string> {

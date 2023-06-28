@@ -8,4 +8,7 @@ export class Configuracao extends AbstractEntity {
     tempoParaDesconto?: Date
     tempoDeDesconto?: Date
     gerarDesconto?: Boolean
+    vagasCarro?: number
+    vagasMoto?: number
+    vagasVan?: number
 }

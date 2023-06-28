@@ -2,11 +2,9 @@
   <div class="container" style="background: ;">
 
 <div class="row">
- <div class="col-md-10 text-start"> <p class="fs-3"> Cadastrar o Modelo</p> </div>
- <div class="col-md-2"> </div>
+ <div class="col-md-10 text-start"> <p class="fs-3"> Cadastrar Modelo</p> </div>
+ <hr/>
 </div>
-
-<hr/>
 
 <div v-if="mensagem.ativo" class="row">
  <div class="col-md-12 text-start">
@@ -20,18 +18,18 @@
 <div class="row">
  <div class="col-md-12 text-start">
    <label for="recipient-name" class=" row m-auto col-form-label">Selecionar Marca:</label>
-     <select type="text" v-model="modelo.marca"><option v-for="item in marca" :value="item">{{ item.nome }}</option></select>
+     <select type="text" class="form-select form-select-md  mb-3" aria-label=".form-select-md  example" v-model="modelo.marca"><option v-for="item in marca" :value="item">{{ item.nome }}</option></select>
  </div>
    <div class="col-md-12 text-start">
        <label class="form-label">Nome do Modelo</label>
-       <input type="text"  class="form-control" v-model="modelo.nome">
+       <input type="text" class="form-control" v-model="modelo.nome">
    </div>
 </div>
 
 <div class="row">
  <div class="col-md-3 offset-md-6"> 
    <div class="d-grid gap-2">
-     <router-link type="button" class="btn btn-info" 
+     <router-link type="button" id="voltarbt" class="btn btn-info" 
        to="/modelo/lista">Voltar
      </router-link>
    </div>
@@ -39,15 +37,15 @@
  <div class="col-md-3 "> 
    <div class="d-grid gap-2">
      <button v-if="this.form === undefined" type="button" 
-         class="btn btn-success" @click="onClickCadastrar()">
+         id="cadastrarbt" class="btn btn-success" @click="onClickCadastrar()">
        Cadastrar 
      </button>
      <button v-if="this.form === 'editar'" type="button" 
-         class="btn btn-warning" @click="onClickEditar()">
+        id="editarbt" class="btn btn-warning" @click="onClickEditar()">
        Editar 
      </button>
      <button v-if="this.form === 'excluir'" type="button"
-       class="btn btn-danger" @click="onClickExcluir()">
+       id = "excluirbt" class="btn btn-danger" @click="onClickExcluir()">
        Excluir 
      </button>
    </div>
@@ -122,7 +120,6 @@ export default defineComponent({
          
          this.mensagem.ativo = true;
          this.mensagem.mensagem = sucess;
-         this.mensagem.titulo = "Parabens. ";
          this.mensagem.css = "alert alert-success alert-dismissible fade show";
        })
        .catch(error => {
@@ -151,7 +148,6 @@ export default defineComponent({
          
          this.mensagem.ativo = true;
          this.mensagem.mensagem = sucess;
-         this.mensagem.titulo = "Parabens. ";
          this.mensagem.css = "alert alert-success alert-dismissible fade show";
        })
        .catch(error => {
@@ -165,8 +161,9 @@ export default defineComponent({
      ModeloClient.excluir(this.modelo.id)
        .then(sucess => {
          this.modelo = new Modelo()
-         
-         this.$router.push({ name: 'modelo-lista-view' });
+         this.mensagem.ativo = true;
+         this.mensagem.mensagem = sucess;
+         this.mensagem.css = "alert alert-success alert-dismissible fade show";
        })
        .catch(error => {
          this.mensagem.ativo = true;
@@ -183,6 +180,30 @@ export default defineComponent({
 
 
 <style lang="scss">
+ .col-md-10{
+            font-size: 32px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
 
+        .fs-3{
+          margin-top: 20px;
+        }
+
+        #voltarbt{
+            margin-top: 20px;
+          }
+
+          #editarbt{
+            margin-top: 20px;
+          }
+
+          #cadastrarbt{
+            margin-top: 20px;
+          }
+
+          #excluirbt{
+            margin-top: 20px;
+          }
 
 </style>

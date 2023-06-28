@@ -3,6 +3,11 @@ import HomeView from '../views/HomeView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
+    path: '/',
+    name: 'movimentacao-lista-view',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Movimentacao/MovimentacaoListaView.vue')
+  },
+  {
     path: '/marca/lista',
     name: 'marca-lista-view',
     component: () => import(/* webpackChunkName: "about" */ '../views/marca/MarcaListaView.vue')
@@ -93,7 +98,53 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import(/* webpackChunkName: "about" */ '../views/Condutor/CondutorFormView.vue')
       }
     ]
-  }
+  },
+  {
+    path: '/movimentacao/lista',
+    name: 'movimentacao-lista-view',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Movimentacao/MovimentacaoListaView.vue')
+  },
+
+  {
+    path: '/movimentacao/formulario',
+    name: 'movimentacao-formulario-view',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Movimentacao/MovimentacaoFormView.vue'),
+    children: [
+      {
+        path: '/movimentacao/formulario',
+        name: 'movimentacao-formulario-editar-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Movimentacao/MovimentacaoFormView.vue')
+      },
+      {
+        path: '/movimentacao/formulario',
+        name: 'movimentacao-formulario-excluir-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Movimentacao/MovimentacaoFormView.vue')
+      }
+    ]
+  },
+  {
+    path: '/configuracao/lista',
+    name: 'configuracao-lista-view',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ConfiguracaoListaView.vue')
+  },
+
+  {
+    path: '/configuracao/formulario',
+    name: 'configuracao-formulario-view',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ConfiguracaoFormView.vue'),
+    children: [
+      {
+        path: '/configuracao/formulario',
+        name: 'configuracao-formulario-editar-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ConfiguracaoFormView.vue')
+      },
+      {
+        path: '/configuracao/formulario',
+        name: 'configuracao-formulario-excluir-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ConfiguracaoFormView.vue')
+      }
+    ]
+  },
 ]
 
 const router = createRouter({
